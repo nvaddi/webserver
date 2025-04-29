@@ -5,7 +5,7 @@ on:
     inputs:
         runner-label:
         type: choice
-        description: Who to greet
+        description: Choose runner label
         options:
         - ubuntu-latest
         - monalisa
