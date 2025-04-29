@@ -1,13 +1,19 @@
 name: "Docker publish test"
 
 on:
-  push:
-    tags:
-      - "v1"
+  workflow_dispatch:
+    inputs:
+        runner-label:
+        type: choice
+        description: Who to greet
+        options:
+        - ubuntu-latest
+        - monalisa
+        - cschleiden
 
 jobs:
   build-and-push-image:
-    runs-on: "ubuntu-latest"
+    runs-on: ${{github.event.inputs.runner-label}}
 
     steps:
       - name: "Checkout"
